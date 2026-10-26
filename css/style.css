@@ -55,3 +55,5 @@ body.motion-ready .reveal.is-visible{opacity:1;transform:translateY(0)}
 
 .project-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}.project-actions a{font-size:10px;font-weight:700;color:var(--accent);border-bottom:1px solid #bdcbbf;padding-bottom:2px}.project-actions a:hover{color:var(--accent-dark);border-color:var(--accent-dark)}
 @media(max-width:380px){.contact-link{overflow-wrap:anywhere}}
+
+.taskflow-actions{align-items:center;gap:9px;margin-top:17px}.taskflow-actions a{display:inline-flex;align-items:center;justify-content:center;min-height:38px;padding:0 12px;border:1px solid var(--accent);border-radius:6px;font-size:11px;text-decoration:none}.taskflow-actions .taskflow-open{color:#fff;background:var(--accent)}.taskflow-actions .taskflow-open:hover{color:#fff;background:var(--accent-dark);border-color:var(--accent-dark)}.taskflow-actions .taskflow-source{color:var(--accent);background:transparent}.taskflow-actions .taskflow-source:hover{color:var(--accent-dark);border-color:var(--accent-dark);background:var(--accent-soft)}.taskflow-actions a:focus-visible{outline:3px solid #77a98c;outline-offset:3px}
