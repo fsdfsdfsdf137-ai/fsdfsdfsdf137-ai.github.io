@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="TaskFlow — лёгкий менеджер личных дел. Добавляйте задачи, отмечайте выполненное и находите нужное поиском.">
+  <meta name="theme-color" content="#f6f7f5">
+  <title>TaskFlow — личный список задач</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Перейти к задачам</a>
+  <header class="app-header">
+    <div class="container header-inner">
+      <a class="brand" href="#main" aria-label="TaskFlow — к списку задач"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>task<span>flow</span></span></a>
+      <div class="header-meta"><span class="sync-indicator" aria-hidden="true"></span><span>Ваш личный планер</span><time id="today-date"></time></div>
+    </div>
+  </header>
+  <main class="container dashboard-layout" id="main">
+    <aside class="task-sidebar" aria-label="Обзор задач">
+      <section class="focus-card" aria-labelledby="focus-title">
+        <div class="focus-card-top"><span class="focus-icon" aria-hidden="true">✳</span><span class="focus-label">ВАШ ФОКУС</span></div>
+        <h2 id="focus-title">Маленькими<br>шагами.</h2>
+        <p>Один понятный шаг за раз — и дела постепенно складываются.</p>
+        <div class="progress-block"><div class="progress-label"><span>Выполнено</span><strong id="progress-label">0%</strong></div><div class="progress-track" id="progress-track" role="progressbar" aria-label="Доля выполненных задач" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="progress-bar"></span></div></div>
+      </section>
+      <section class="sidebar-section" aria-labelledby="filters-title">
+        <h2 class="sidebar-heading" id="filters-title">СПИСОК</h2>
+        <nav class="filter-list" aria-label="Фильтр задач">
+          <button class="filter-button is-active" type="button" data-filter="all" aria-pressed="true"><span class="filter-symbol" aria-hidden="true">▦</span><span>Все задачи</span><span class="filter-count" id="all-count">0</span></button>
+          <button class="filter-button" type="button" data-filter="active" aria-pressed="false"><span class="filter-symbol" aria-hidden="true">◷</span><span>Активные</span><span class="filter-count" id="active-count">0</span></button>
+          <button class="filter-button" type="button" data-filter="completed" aria-pressed="false"><span class="filter-symbol" aria-hidden="true">✓</span><span>Выполненные</span><span class="filter-count" id="completed-count">0</span></button>
+        </nav>
+      </section>
+      <div class="sidebar-bottom"><p class="storage-note" id="storage-status" role="status" aria-live="polite">Изменения сохраняются в этом браузере.</p><button class="clear-completed" id="clear-completed" type="button" hidden>Удалить выполненные</button></div>
+    </aside>
+
+    <section class="task-panel" aria-labelledby="page-title">
+      <div class="panel-heading"><div><p class="eyebrow">ВАШЕ ПРОСТРАНСТВО ДЛЯ ДЕЛ</p><h1 id="page-title">Мои задачи<span>.</span></h1><p class="panel-subtitle">Соберите мысли в список и двигайтесь в своём темпе.</p></div><div class="task-total"><strong id="total-count">0</strong><span>всего<br>задач</span></div></div>
+      <form class="add-task-form" id="add-task-form" novalidate>
+        <label class="visually-hidden" for="new-task-input">Название новой задачи</label>
+        <span class="input-symbol" aria-hidden="true">＋</span>
+        <input id="new-task-input" name="task" type="text" maxlength="120" autocomplete="off" placeholder="Добавить задачу — нажмите Enter" aria-describedby="form-message">
+        <button class="add-button" type="submit"><span class="add-button-label">Добавить</span><span aria-hidden="true">↵</span></button>
+      </form>
+      <p class="form-message" id="form-message" role="status" aria-live="polite"></p>
+      <div class="task-toolbar">
+        <div class="toolbar-title"><h2>Список дел</h2><span class="visible-count" id="visible-count">0 задач</span></div>
+        <label class="search-field"><span class="visually-hidden">Поиск по задачам</span><span aria-hidden="true">⌕</span><input id="search-input" type="search" placeholder="Найти задачу…" autocomplete="off"><kbd>/</kbd></label>
+      </div>
+      <div class="mobile-filters" role="group" aria-label="Фильтр задач">
+        <button class="filter-chip is-active" type="button" data-filter="all" aria-pressed="true">Все <span id="mobile-all-count">0</span></button>
+        <button class="filter-chip" type="button" data-filter="active" aria-pressed="false">Активные <span id="mobile-active-count">0</span></button>
+        <button class="filter-chip" type="button" data-filter="completed" aria-pressed="false">Готово <span id="mobile-completed-count">0</span></button>
+      </div>
+      <ul class="task-list" id="task-list" aria-label="Ваши задачи"></ul>
+      <div class="empty-state" id="empty-state" hidden>
+        <div class="empty-illustration" aria-hidden="true"><span>✓</span><i></i><i></i><i></i></div>
+        <h2 id="empty-title">Пока здесь тихо</h2><p id="empty-description">Добавьте первую задачу — и она появится в вашем списке.</p>
+        <button class="empty-action" id="empty-action" type="button" hidden>Сбросить поиск</button>
+      </div>
+      <div class="list-footer"><span id="remaining-summary">Нет задач, которые ждут внимания</span><span><span class="keyboard-dot" aria-hidden="true"></span> Нажмите <kbd>/</kbd>, чтобы искать</span></div>
+    </section>
+  </main>
+  <footer class="app-footer"><div class="container footer-inner"><a class="brand footer-brand" href="#main"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>task<span>flow</span></span></a><p>Демо-проект для портфолио · Ваши задачи хранятся только в этом браузере.</p><a href="#main">К началу ↑</a></div></footer>
+</body>
+</html>
