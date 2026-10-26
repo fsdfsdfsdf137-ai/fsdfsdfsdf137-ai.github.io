@@ -43,3 +43,12 @@
 [data-theme="dark"] .theme-icon-moon{display:block}
 @media(max-width:620px){.site-nav{order:2;margin-left:0}.theme-toggle{order:3}.menu-toggle{order:4}}
 @media(prefers-reduced-motion:reduce){.theme-toggle{transition:none}}
+
+
+@keyframes intro-rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+.hero-copy{animation:intro-rise .7s cubic-bezier(.2,.7,.2,1) both}
+.hero-visual{animation:intro-rise .8s .12s cubic-bezier(.2,.7,.2,1) both}
+body.motion-ready .reveal{opacity:0;transform:translateY(22px);transition:opacity .65s cubic-bezier(.2,.7,.2,1),transform .65s cubic-bezier(.2,.7,.2,1);transition-delay:var(--reveal-delay,0ms)}
+body.motion-ready .reveal.is-visible{opacity:1;transform:translateY(0)}
+@media(max-width:380px){.section-heading h2,.process-intro h2,.about-copy h2,.contact-panel h2{font-size:31px}.contact-panel{padding-inline:18px}.contact-link{font-size:12px;overflow-wrap:anywhere}.hero-description{font-size:14px}.hero-note{font-size:11px}}
+@media(prefers-reduced-motion:reduce){.hero-copy,.hero-visual{animation:none}body.motion-ready .reveal,body.motion-ready .reveal.is-visible{opacity:1;transform:none;transition:none}}

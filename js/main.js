@@ -45,7 +45,7 @@ const navLinks = siteNav.querySelectorAll("a");
 
 function setMenuState(isOpen) {
   menuButton.setAttribute("aria-expanded", String(isOpen));
-  menuButton.setAttribute("aria-label", isOpen ? "Закрыть меню" : "Открыть меню");
+  menuButton.setAttribute("aria-label", isOpen ? "\u0417\u0430\u043a\u0440\u044b\u0442\u044c \u043c\u0435\u043d\u044e" : "\u041e\u0442\u043a\u0440\u044b\u0442\u044c \u043c\u0435\u043d\u044e");
   siteNav.classList.toggle("is-open", isOpen);
 }
 
@@ -72,3 +72,32 @@ document.addEventListener("click", (event) => {
 window.addEventListener("resize", () => {
   if (window.innerWidth > 620) setMenuState(false);
 });
+
+
+const revealGroups = [
+  document.querySelectorAll(".section-heading, .process-intro, .about-copy, .about-mark, .contact-panel"),
+  document.querySelectorAll(".service-card, .project-card, .process-step")
+];
+const revealItems = [...revealGroups[0], ...revealGroups[1]];
+const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+if (revealItems.length && !reducedMotion && "IntersectionObserver" in window) {
+  revealGroups.forEach((group) => {
+    group.forEach((item, index) => {
+      item.classList.add("reveal");
+      if (group.length > 1) item.style.setProperty("--reveal-delay", `${index * 90}ms`);
+    });
+  });
+
+  document.body.classList.add("motion-ready");
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: "0px 0px -28px 0px" });
+
+  revealItems.forEach((item) => revealObserver.observe(item));
+}
