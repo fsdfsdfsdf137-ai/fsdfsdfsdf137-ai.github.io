@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="WebCost — демонстрационный калькулятор предварительной оценки стоимости веб-разработки.">
+  <meta name="theme-color" content="#f4f6f3">
+  <title>WebCost — калькулятор стоимости веб-разработки</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#calculator">Перейти к калькулятору</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="WebCost — на главную"><span class="brand-symbol" aria-hidden="true">W</span><span>web<span>cost</span></span></a>
+      <a class="header-link" href="#how-it-works">Как считается цена <span aria-hidden="true">↘</span></a>
+    </div>
+  </header>
+  <main id="top">
+    <section class="intro container" aria-labelledby="page-title">
+      <p class="eyebrow"><span></span> ПРЕДВАРИТЕЛЬНАЯ ОЦЕНКА</p>
+      <h1 id="page-title">Узнайте ориентир<br>стоимости <em>вашего сайта.</em></h1>
+      <p class="intro-text">Выберите тип проекта, объём работ и нужные функции — калькулятор покажет, из чего складывается оценка.</p>
+    </section>
+    <section class="calculator container" id="calculator" aria-label="Калькулятор стоимости веб-разработки">
+      <form class="calculator-form" id="cost-form" novalidate>
+        <div class="form-heading"><div><span class="step-label">01 / ПАРАМЕТРЫ</span><h2>Расскажите о проекте</h2></div><span class="required-note">* обязательные поля</span></div>
+        <div class="field-grid">
+          <div class="field field-wide">
+            <label for="project-type">Тип проекта <span aria-hidden="true">*</span></label>
+            <select id="project-type" name="projectType" required>
+              <option value="block">Небольшой блок или секция</option>
+              <option value="landing" selected>Лендинг</option>
+              <option value="multipage">Многостраничный сайт</option>
+            </select>
+            <small class="field-hint" id="type-hint">Оценка лендинга рассчитывается по количеству секций.</small>
+          </div>
+          <div class="field">
+            <label for="quantity" id="quantity-label">Количество секций</label>
+            <div class="number-control"><input id="quantity" name="quantity" type="number" min="1" max="60" step="1" value="5" inputmode="numeric" required aria-describedby="quantity-hint quantity-error"><span>шт.</span></div>
+            <small class="field-hint" id="quantity-hint">Укажите целое число от 1 до 60.</small>
+            <small class="field-error" id="quantity-error" aria-live="polite"></small>
+          </div>
+          <div class="field">
+            <label for="complexity">Сложность</label>
+            <select id="complexity" name="complexity">
+              <option value="basic">Базовая</option>
+              <option value="standard" selected>Стандартная</option>
+              <option value="advanced">Расширенная</option>
+            </select>
+            <small class="field-hint">Учитывает индивидуальность дизайна и логики.</small>
+          </div>
+          <fieldset class="field field-wide feature-field">
+            <legend>Дополнительные функции <span class="optional-label">необязательно</span></legend>
+            <div class="feature-grid">
+              <label class="feature-option"><input type="checkbox" name="feature" value="form"><span class="custom-check" aria-hidden="true"></span><span>Форма обратной связи</span></label>
+              <label class="feature-option"><input type="checkbox" name="feature" value="modal"><span class="custom-check" aria-hidden="true"></span><span>Модальное окно</span></label>
+              <label class="feature-option"><input type="checkbox" name="feature" value="animation"><span class="custom-check" aria-hidden="true"></span><span>Анимация элементов</span></label>
+              <label class="feature-option"><input type="checkbox" name="feature" value="gallery"><span class="custom-check" aria-hidden="true"></span><span>Галерея изображений</span></label>
+            </div>
+          </fieldset>
+          <fieldset class="field field-wide urgency-field">
+            <legend>Срок выполнения</legend>
+            <div class="urgency-options">
+              <label class="urgency-option"><input type="radio" name="urgency" value="standard" checked><span class="radio-mark" aria-hidden="true"></span><span><strong>Стандартный</strong><small>Без доплаты за срочность</small></span></label>
+              <label class="urgency-option"><input type="radio" name="urgency" value="express"><span class="radio-mark" aria-hidden="true"></span><span><strong>Ускоренный</strong><small>При наличии свободного времени</small></span></label>
+            </div>
+          </fieldset>
+        </div>
+        <div class="form-footer"><p>Это демонстрационная оценка, а не оферта. Итоговая стоимость согласуется после уточнения технического задания.</p><button class="reset-button" type="reset"><span aria-hidden="true">↺</span> Сбросить параметры</button></div>
+      </form>
+      <aside class="estimate-card" aria-labelledby="estimate-title">
+        <div class="estimate-top"><span class="step-label">02 / ВАША ОЦЕНКА</span><span class="estimate-icon" aria-hidden="true">↗</span></div>
+        <h2 id="estimate-title">Предварительная<br>стоимость</h2>
+        <p class="estimate-caption">Ориентир по выбранным параметрам</p>
+        <p class="estimate-total" id="estimate-total" aria-live="polite" aria-atomic="true">—</p>
+        <p class="estimate-error" id="estimate-error" role="status" aria-live="polite" hidden></p>
+        <div class="breakdown" aria-labelledby="breakdown-title">
+          <h3 id="breakdown-title">Расшифровка</h3>
+          <ul id="breakdown-list" class="breakdown-list">
+            <li><span>Базовая стоимость проекта</span><strong>—</strong></li>
+          </ul>
+        </div>
+        <p class="estimate-note"><span aria-hidden="true">i</span> Расчёт не является публичной офертой. Смета зависит от технического задания и согласуется отдельно.</p>
+      </aside>
+    </section>
+    <section class="how-section" id="how-it-works" aria-labelledby="how-title">
+      <div class="container how-inner"><div><p class="eyebrow">ПОНЯТНО И ПРОЗРАЧНО</p><h2 id="how-title">Как формируется оценка</h2></div><p>Стоимость складывается из типа и объёма проекта, выбранных функций, уровня сложности и срока. Вы можете изменить параметры в любой момент — сумма пересчитается автоматически.</p></div>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="container footer-inner"><a class="brand footer-brand" href="#top"><span class="brand-symbol" aria-hidden="true">W</span><span>web<span>cost</span></span></a><p>Демонстрационный проект для портфолио · HTML, CSS и JavaScript</p><a href="#calculator">К калькулятору ↑</a></div></footer>
+</body>
+</html>
