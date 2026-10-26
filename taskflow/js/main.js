@@ -181,6 +181,13 @@
     });
   }
 
+  function focusTaskAction(taskId, action) {
+    const item = [...elements.list.querySelectorAll('[data-id]')]
+      .find((taskElement) => taskElement.dataset.id === taskId);
+    const control = item?.querySelector(`[data-action="${action}"]`);
+    (control || elements.input).focus();
+  }
+
   function pluralize(number, forms) {
     const mod100 = number % 100;
     const mod10 = number % 10;
@@ -212,13 +219,20 @@
     if (!task) return;
     switch (button.dataset.action) {
       case 'toggle':
-        task.completed = !task.completed; task.updatedAt = new Date().toISOString(); saveTasks(); render(); break;
+        task.completed = !task.completed; task.updatedAt = new Date().toISOString(); saveTasks(); render(); focusTaskAction(task.id, 'toggle'); break;
       case 'edit':
         state.editingId = task.id; render(); break;
       case 'cancel-edit':
-        state.editingId = null; render(); break;
-      case 'delete':
-        state.tasks = state.tasks.filter((entry) => entry.id !== task.id); saveTasks(); render(); break;
+        state.editingId = null; render(); focusTaskAction(task.id, 'edit'); break;
+      case 'delete': {
+        const taskIndex = state.tasks.findIndex((entry) => entry.id === task.id);
+        state.tasks = state.tasks.filter((entry) => entry.id !== task.id);
+        const nextTask = state.tasks[Math.min(taskIndex, state.tasks.length - 1)];
+        saveTasks(); render();
+        if (nextTask) focusTaskAction(nextTask.id, 'toggle');
+        else elements.input.focus();
+        break;
+      }
     }
   });
 
@@ -230,7 +244,7 @@
     const title = new FormData(form).get('title').trim();
     if (!title) { form.elements.title.setCustomValidity('Введите название задачи.'); form.elements.title.reportValidity(); return; }
     if (task && title.length <= 120) { task.title = title; task.updatedAt = new Date().toISOString(); }
-    state.editingId = null; saveTasks(); render();
+    state.editingId = null; saveTasks(); render(); focusTaskAction(task?.id, 'edit');
   });
 
   elements.list.addEventListener('input', (event) => {
@@ -253,7 +267,12 @@
     if (event.key === '/' && !event.ctrlKey && !event.metaKey && !event.altKey && !['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) {
       event.preventDefault(); elements.search.focus();
     }
-    if (event.key === 'Escape' && state.editingId) { state.editingId = null; render(); }
+    if (event.key === 'Escape' && state.editingId) {
+      const editingId = state.editingId;
+      state.editingId = null;
+      render();
+      focusTaskAction(editingId, 'edit');
+    }
   });
 
   loadTasks();
