@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Иллюстрация чашки кофе North Coffee">
+  <rect width="1200" height="900" fill="#e8e2d6"/>
+  <circle cx="920" cy="180" r="190" fill="#d8d3c5"/>
+  <path d="M0 670c230-130 460-95 690 10 220 100 340 80 510-10v230H0z" fill="#d6c8b2"/>
+  <ellipse cx="610" cy="655" rx="300" ry="88" fill="#c3b198" opacity=".55"/>
+  <path d="M410 410h390l-40 240c-10 70-55 110-155 110S460 720 450 650z" fill="#f8f5eb"/>
+  <path d="M795 455h90c120 0 110 180-15 190h-65" fill="none" stroke="#f8f5eb" stroke-width="43"/>
+  <ellipse cx="605" cy="420" rx="196" ry="51" fill="#4a3427"/>
+  <ellipse cx="605" cy="420" rx="156" ry="32" fill="#b17a48"/>
+  <path d="M592 420c-48-45-90 8-24 21 68 13 70 67 6 69-60 2-73-47-32-61 52-17 8-57-21-38" fill="none" stroke="#f3dfbc" stroke-width="13" stroke-linecap="round"/>
+  <path d="M524 345c-45-53 44-67 3-127m98 126c-48-56 39-76 1-141m99 143c-38-44 37-61 8-112" fill="none" stroke="#fffaf0" stroke-width="12" stroke-linecap="round" opacity=".75"/>
+  <text x="600" y="845" text-anchor="middle" fill="#294b3a" font-family="Georgia,serif" font-size="30" letter-spacing="8">NORTH COFFEE</text>
+</svg>

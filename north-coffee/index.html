@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="North Coffee — концепция независимой specialty-кофейни: сезонный кофе, тихие утра и внимание к каждой чашке.">
+  <meta name="theme-color" content="#f4f0e7">
+  <title>North Coffee — кофе с характером и паузой</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">К основному содержимому</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#home" aria-label="North Coffee — на главную"><span class="brand-mark" aria-hidden="true">N</span><span class="brand-name">north<span>coffee</span></span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Открыть меню"><span></span><span></span></button>
+      <nav class="site-nav" id="site-nav" aria-label="Основная навигация">
+        <a href="#drinks">Меню</a><a href="#story">О кофейне</a><a href="#space">Пространство</a><a href="#visit">Как найти</a>
+        <a class="nav-cta" href="#visit">Заглянуть к нам <span aria-hidden="true">↗</span></a>
+      </nav>
+    </div>
+  </header>
+  <main id="main">
+    <section class="hero" id="home" aria-labelledby="hero-title"><div class="container hero-layout">
+      <div class="hero-copy"><p class="eyebrow"><span class="eyebrow-line"></span> НЕЗАВИСИМАЯ КОФЕЙНЯ · САНКТ-ПЕТЕРБУРГ</p>
+        <h1 id="hero-title">Северный ритм.<br><em>Тёплый</em> кофе.</h1>
+        <p class="hero-description">Место, где можно замедлиться, услышать себя и попробовать кофе, который мы выбираем с интересом.</p>
+        <div class="hero-actions"><a class="button button-dark" href="#drinks">Посмотреть меню <span aria-hidden="true">↓</span></a><a class="quiet-link" href="#story">Наша философия <span aria-hidden="true">↗</span></a></div>
+        <p class="hero-footnote"><span class="open-dot" aria-hidden="true"></span> Каждый день · 08:00—20:00 <span class="footnote-demo">Демонстрационный график</span></p>
+      </div>
+      <div class="hero-visual"><figure class="hero-photo photo-frame"><img src="assets/photo-placeholder.svg" data-photo="https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=1500&q=85" alt="Уютный интерьер кофейни с деревянными столами и мягким дневным светом" fetchpriority="high"><figcaption class="photo-caption"><span>СВОЙ ТЕМП. СВОЙ РИТУАЛ.</span><span>59°56′ С · 30°19′ В</span></figcaption></figure>
+        <div class="hero-stamp" aria-hidden="true"><span>coffee</span><b>for<br>slow<br>mornings</b><i>NC · DEMO</i></div><span class="hero-side-note" aria-hidden="true">ОТ ЗЁРЕН ДО ПОСЛЕДНЕГО ГЛОТКА — С ЗАБОТОЙ</span></div>
+    </div><div class="hero-bottom container"><span>СПЕЦИАЛЬТИ КОФЕ · СВОЯ ОБЖАРКА</span><a href="#drinks" aria-label="Прокрутить к меню">↓</a><span>СДЕЛАНО НЕ СПЕША</span></div></section>
+
+    <section class="section drinks-section" id="drinks" aria-labelledby="drinks-title"><div class="container">
+      <div class="section-heading"><div><p class="eyebrow">МЕНЮ · НАШИ ФАВОРИТЫ</p><h2 id="drinks-title">Хорошее знакомство<br><em>начинается с чашки.</em></h2></div><p class="section-note">Классика и несколько новых любимых вкусов. Напитки готовим на зерне сезонной обжарки.</p></div>
+      <div class="drinks-grid">
+        <article class="drink-card"><button class="drink-trigger" type="button" data-drink="espresso" aria-haspopup="dialog" aria-label="Подробнее об эспрессо"><span class="drink-image photo-frame"><img src="assets/photo-placeholder.svg" data-photo="https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=900&q=82" alt="Эспрессо в керамической чашке на деревянной стойке" loading="lazy"><span class="drink-open" aria-hidden="true">↗</span></span><span class="drink-meta"><span class="drink-kind">КОРОТКИЙ И ЯРКИЙ</span><span class="drink-price">190 ₽*</span></span><span class="drink-title">Эспрессо</span><span class="drink-description">Плотный, сладкий, с нотами тёмного шоколада.</span></button></article>
+        <article class="drink-card"><button class="drink-trigger" type="button" data-drink="flat-white" aria-haspopup="dialog" aria-label="Подробнее о флэт уайте"><span class="drink-image photo-frame"><img src="assets/photo-placeholder.svg" data-photo="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=900&q=82" alt="Молочный кофейный напиток с латте-артом" loading="lazy"><span class="drink-open" aria-hidden="true">↗</span></span><span class="drink-meta"><span class="drink-kind">МЯГКИЙ И БАРХАТНЫЙ</span><span class="drink-price">320 ₽*</span></span><span class="drink-title">Флэт уайт</span><span class="drink-description">Двойной эспрессо и тонкая текстура молока.</span></button></article>
+        <article class="drink-card"><button class="drink-trigger" type="button" data-drink="filter" aria-haspopup="dialog" aria-label="Подробнее о фильтр-кофе"><span class="drink-image photo-frame"><img src="assets/photo-placeholder.svg" data-photo="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=900&q=82" alt="Фильтр-кофе и зёрна свежей обжарки" loading="lazy"><span class="drink-open" aria-hidden="true">↗</span></span><span class="drink-meta"><span class="drink-kind">ЧИСТЫЙ И ФРУКТОВЫЙ</span><span class="drink-price">290 ₽*</span></span><span class="drink-title">Фильтр дня</span><span class="drink-description">Лёгкая чашка с сезонным вкусом и долгим послевкусием.</span></button></article>
+      </div><p class="demo-note">* Цены и описания — демонстрационные данные учебного проекта.</p>
+    </div></section>    <section class="story-section" id="story" aria-labelledby="story-title"><div class="container story-layout">
+      <div class="story-image photo-frame"><img src="assets/photo-placeholder.svg" data-photo="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1200&q=85" alt="Светлый зал небольшой независимой кофейни" loading="lazy"><span class="story-image-label">МЕСТО ДЛЯ СВОИХ МЫСЛЕЙ</span></div>
+      <div class="story-copy"><p class="eyebrow">ПОЧЕМУ NORTH</p><h2 id="story-title">Не просто<br><em>на пути.</em></h2><p>Мы верим, что хороший кофе не должен торопить. Поэтому выбираем зерно у небольших обжарщиков, бережно раскрываем его вкус и оставляем в дне немного пространства.</p><p>Можно забежать за чашкой по дороге, а можно остаться у окна с книгой. Здесь рады обоим сценариям.</p><a class="text-link" href="#space">Посмотреть пространство <span aria-hidden="true">↗</span></a><div class="story-signature" aria-hidden="true">north coffee <span>— с теплом, даже на севере</span></div></div>
+    </div></section>
+    <section class="section space-section" id="space" aria-labelledby="space-title"><div class="container">
+      <div class="section-heading space-heading"><div><p class="eyebrow">ЗАГЛЯНИТЕ ВНУТРЬ</p><h2 id="space-title">Свет, дерево<br><em>и место у окна.</em></h2></div><p class="section-note">Галерея настроения North Coffee. Фото из Unsplash для демонстрационного макета.</p></div>
+      <div class="gallery-grid">
+        <figure class="gallery-item gallery-tall photo-frame"><img src="assets/photo-placeholder.svg" data-photo="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1200&q=85" alt="Зал кофейни с деревянной мебелью и зелёными растениями" loading="lazy"><figcaption>ТИШИНА МЕЖДУ ДЕЛАМИ</figcaption></figure>
+        <figure class="gallery-item photo-frame"><img src="assets/photo-placeholder.svg" data-photo="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=900&q=82" alt="Бариста готовит кофе на профессиональной кофемашине" loading="lazy"><figcaption>ВНИМАНИЕ К КАЖДОЙ ЧАШКЕ</figcaption></figure>
+        <figure class="gallery-item photo-frame"><img src="assets/photo-placeholder.svg" data-photo="https://images.unsplash.com/photo-1498804103079-a6351b050096?auto=format&fit=crop&w=900&q=82" alt="Кофейные зёрна и чашка кофе на столе" loading="lazy"><figcaption>МАЛЕНЬКИЕ РИТУАЛЫ</figcaption></figure>
+      </div>
+    </div></section>
+    <section class="visit-section" id="visit" aria-labelledby="visit-title"><div class="container visit-layout">
+      <div><p class="eyebrow">МЫ ЗДЕСЬ</p><h2 id="visit-title">Ваш столик<br><em>уже ждёт.</em></h2><p class="visit-note">Адрес и расписание придуманы для демонстрации дизайна — перед реальным запуском их нужно заменить.</p></div>
+      <div class="visit-details"><div class="detail-row"><span>АДРЕС</span><p>Санкт-Петербург<br>Невский проспект, 00 <small>Демонстрационный адрес</small></p></div><div class="detail-row"><span>ЧАСЫ РАБОТЫ</span><p>Ежедневно<br>08:00—20:00 <small>Демонстрационный график</small></p></div><a class="button button-light" href="#contacts">Связаться с кофейней <span aria-hidden="true">↓</span></a></div>
+    </div></section>
+    <section class="contact-section" id="contacts" aria-labelledby="contact-title"><div class="container contact-inner"><p class="eyebrow">ХОРОШИЙ КОФЕ — ХОРОШИЙ ПОВОД</p><h2 id="contact-title">Увидимся<br><em>за чашкой?</em></h2><p>North Coffee — концепция независимой кофейни, созданная для портфолио.</p><a class="button button-dark" href="#visit">Посмотреть адрес и часы <span aria-hidden="true">↗</span></a></div><div class="contact-decoration" aria-hidden="true">N</div></section>
+  </main>
+  <footer class="site-footer"><div class="container footer-top"><a class="brand brand-footer" href="#home"><span class="brand-mark" aria-hidden="true">N</span><span class="brand-name">north<span>coffee</span></span></a><nav aria-label="Навигация в подвале"><a href="#drinks">Меню</a><a href="#story">О кофейне</a><a href="#space">Пространство</a><a href="#visit">Как найти</a></nav><a class="footer-top-link" href="#home">Наверх ↑</a></div><div class="container footer-bottom"><span>© NORTH COFFEE · УЧЕБНЫЙ КОНЦЕПТ</span><span>СДЕЛАНО С ВНИМАНИЕМ К КАЖДОЙ ДЕТАЛИ</span></div></footer>
+  <dialog class="drink-dialog" aria-labelledby="dialog-title" aria-describedby="dialog-description"><button class="dialog-close" type="button" aria-label="Закрыть описание">×</button><p class="eyebrow" id="dialog-kicker">NORTH COFFEE · МЕНЮ</p><h2 id="dialog-title">Напиток</h2><p id="dialog-description"></p><dl class="dialog-notes"><div><dt>Профиль</dt><dd id="dialog-profile"></dd></div><div><dt>Объём</dt><dd id="dialog-size"></dd></div></dl><p class="dialog-demo">Описание и цена — демонстрационные.</p></dialog>
+</body>
+</html>
